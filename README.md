@@ -5,4 +5,4 @@ This app allows you to use YouTube.com/tv (the YouTube interface for smart tvs a
 Downloads are available [here](https://github.com/mattruzzi/Nativefier-YouTube-Roku-App-for-Desktop/releases).
 
 ## How to build
-Install [Nativefier](https://github.com/jiahaog/nativefier#installation) and run `nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV`. 
+Install [Nativefier](https://github.com/jiahaog/nativefier#installation) and run `nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV"`. 
