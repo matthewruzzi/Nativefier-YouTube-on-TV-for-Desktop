@@ -32,7 +32,7 @@ jobs:
       - name: Install Nativefier
         run: npm install -g nativefier
       - name: Make Builds folder
-        run: mkdir builds && cd builds
+        run: mkdir builds && cd builds && pwd
       - name: Build for arm
         run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" -p linux -a arm
       - name: Build for arm64
