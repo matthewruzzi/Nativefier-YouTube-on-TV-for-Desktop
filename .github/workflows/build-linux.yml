@@ -43,12 +43,18 @@ jobs:
         run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" -p linux -a ia32 builds
       - name: Show all files
         run: sudo apt install tree && tree
-      - name: Upload Build Artifact
+      - name: Upload arm64 Build
         uses: actions/upload-artifact@v2
         with:
            name: Builds
-           path:  |
-            /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-arm64
-            /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-x64
-            /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-ia32
-            
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-arm64
+      - name: Upload x64 Build
+        uses: actions/upload-artifact@v2
+        with:
+           name: Builds
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-x64
+      - name: Upload ia32 Build
+        uses: actions/upload-artifact@v2
+        with:
+           name: Builds
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-ia32
