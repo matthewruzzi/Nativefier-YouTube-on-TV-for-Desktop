@@ -31,6 +31,8 @@ jobs:
           node-version: '12'
       - name: Install Nativefier
         run: npm install -g nativefier
+      - name: Make Builds folder
+        run: mkdir builds && cd builds
       - name: Build for arm
         run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" -p linux -a arm
       - name: Build for arm64
@@ -43,4 +45,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
            name: Builds
-           path: /home/runner/
+           path: builds
