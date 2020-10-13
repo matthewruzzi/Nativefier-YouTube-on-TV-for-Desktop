@@ -40,7 +40,7 @@ jobs:
       - name: Build for arm
         run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" -p linux -a ia32
       - name: Upload Build Artifact
-          uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
           with:
             name: Builds
             path: /home/runner/
