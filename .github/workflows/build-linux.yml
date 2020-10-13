@@ -46,15 +46,15 @@ jobs:
       - name: Upload arm64 Build
         uses: actions/upload-artifact@v2
         with:
-           name: Builds
+           name: YouTubeonTV-linux-arm64
            path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-arm64
       - name: Upload x64 Build
         uses: actions/upload-artifact@v2
         with:
-           name: Builds
+           name: YouTubeonTV-linux-x64
            path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-x64
       - name: Upload ia32 Build
         uses: actions/upload-artifact@v2
         with:
-           name: Builds
+           name: YouTubeonTV-linux-ia32
            path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-ia32
