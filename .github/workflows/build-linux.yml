@@ -47,4 +47,8 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
            name: Builds
-           path:  /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds
+           path:  |
+            /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-arm64
+            /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-x64
+            /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-linux-ia32
+            
