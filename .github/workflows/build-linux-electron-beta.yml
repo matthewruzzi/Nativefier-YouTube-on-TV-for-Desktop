@@ -39,7 +39,7 @@ jobs:
         run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" -p linux -a arm64 builds -e $(npm show electron@beta version)
       - name: Build for x64
         run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" -p linux -a x64 builds -e $(npm show electron@beta version)
-      - name: Build for arm
+      - name: Build for ia32
         run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" -p linux -a ia32 builds -e $(npm show electron@beta version)
       - name: Upload arm64 Build
         uses: actions/upload-artifact@v2
