@@ -6,6 +6,6 @@ cask "ytontv" do
   name "YouTube on TV.app"
   desc "Electron/Nativefier wrapper for YouTube.com/tv (YouTube Smart TV interface)"
   homepage "https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop"
-
-  app "YouTube on TV.app"
+  appcast 'https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases.atom'
+  app "YouTube on TV-darwin-x64/YouTube on TV.app"
 end
