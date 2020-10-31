@@ -1,0 +1,44 @@
+# This is a basic workflow that is manually triggered
+
+name: Build for Mac
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Person to greet'
+        # Default value if no value is explicitly provided
+        default: 'World'
+        # Input has to be provided for the workflow to run
+        required: false
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  build-mac:
+    # The type of runner that the job will run on
+    runs-on: macos-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Install Nativefier
+        run: npm install -g nativefier
+      - name: Make Builds folder
+        run: mkdir builds && cd builds && pwd
+      - name: Build for Mac
+        run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" builds
+      - name: Rename Mac Build
+        run: cd builds && mv YouTube\ on\ TV-darwin-x64 YouTubeonTV-darwin-x64 && ls && pwd
+      - name: Upload Mac Build
+        uses: actions/upload-artifact@v2
+        with:
+           name: YouTubeonTV-darwin-x64
+           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-darwin-x64
