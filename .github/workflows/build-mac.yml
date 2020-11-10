@@ -31,5 +31,5 @@ jobs:
       - name: Upload Mac Build
         uses: actions/upload-artifact@v2
         with:
-           name: YouTubeonTV-darwin-x64
+           name: YouTubeonTV-darwin-x64.zip
            path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-darwin-x64.zip
