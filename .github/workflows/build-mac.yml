@@ -26,10 +26,10 @@ jobs:
         run: mkdir builds && cd builds && pwd
       - name: Build for Mac
         run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" builds
-      - name: Rename Mac Build
-        run: cd builds && mv YouTube\ on\ TV-darwin-x64 YouTubeonTV-darwin-x64 && ls && pwd
+      - name: Zip Mac Build
+        run: cd builds && zip YouTubeonTV-darwin-x64.zip -r YouTube\ on\ TV-darwin-x64
       - name: Upload Mac Build
         uses: actions/upload-artifact@v2
         with:
-           name: YouTubeonTV-darwin-x64
-           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-darwin-x64
+           name: YouTubeonTV-darwin-x64.zip
+           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/builds/YouTubeonTV-darwin-x64.zip
