@@ -1,6 +1,6 @@
 cask "ytontv" do
-  version "10.1.0,10.1.5"
-  sha256 "ae0f81b21741538f8fa202abedd4bb45d4326e482ddae78d859c4f5a78e371dc"
+  version "10.1.5,10.1.5"
+  sha256 "2298a6d6e170290a25867538a4d67225e5683ee0190b9a20e45ce38c747c86b6"
 
   url "https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases/download/#{version}/YouTubeonTV-darwin-x64.zip"
   name "YouTube on TV.app"
