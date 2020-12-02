@@ -1,37 +1,18 @@
-## Welcome to GitHub Pages
+This app allows you to use YouTube.com/tv (the YouTube interface for smart tvs and digital video players like Roku) on a desktop computer. It sets the user agent to Roku to prevent YouTube from redirecting to the standard desktop website. It can be navigated with the arrow, enter, and escape keys.
 
-You can use the [editor on GitHub](https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Downloads
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**MacOS**
 
-### Markdown
+`brew cask install https://raw.githubusercontent.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/master/ytontv.rb`
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+**All Platforms**
+Downloads are available [here](https://github.com/mattruzzi/Nativefier-YouTube-Roku-App-for-Desktop/releases).
 
-```markdown
-Syntax highlighted code block
+## How to build
 
-# Header 1
-## Header 2
-### Header 3
+Install [Nativefier](https://github.com/jiahaog/nativefier#installation) and run `nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $(npm show electron version)`.
 
-- Bulleted
-- List
+## Screenshot
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+ <img src="screenshot.png" alt="Screenshot">
