@@ -4,12 +4,15 @@ This app allows you to use YouTube.com/tv (the YouTube interface for smart tvs a
 
 ## Downloads
 
-**MacOS**
+| macOS                                                                                                                                      | Windows                                                                                                                                    | Linux                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 📦 [64 Bit (Intel)](https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases/latest/download/YouTubeonTV-darwin-x64.zip) | 📦 [64 Bit (Intel)](https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases/latest/download/YouTubeonTV-win32-x64.zip)  | 📦 [64 Bit (Intel)](https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases/latest/download/YouTubeonTV-linux-x64.zip)  |
+|                                                                                                                                            | 📦 [32 Bit (Intel)](https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases/latest/download/YouTubeonTV-win32-ia32.zip) | 📦 [32 Bit (Intel)](https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases/latest/download/YouTubeonTV-linux-ia32.zip) |
+|                                                                                                                                            | 📦 [64 Bit (Arm)](https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases/latest/download/YouTubeonTV-win32-arm64.zipv) | 📦 [64 Bit (Arm)](https://github.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/releases/latest/download/YouTubeonTV-linux-arm64.zip)  |
 
 `brew cask install https://raw.githubusercontent.com/mattruzzi/Nativefier-YouTube-on-TV-for-Desktop/master/ytontv.rb`
 
-**All Platforms**
-Downloads are available [here](https://github.com/mattruzzi/Nativefier-YouTube-Roku-App-for-Desktop/releases).
+[View all Releases](https://github.com/mattruzzi/Nativefier-YouTube-Roku-App-for-Desktop/releases)
 
 ## How to build
 
