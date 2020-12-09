@@ -15,6 +15,11 @@ on:
         default: 'World'
         # Input has to be provided for the workflow to run
         required: true
+  push:
+    branches:
+    - master
+    paths:
+    - '.github/workflows/release.yml'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -31,7 +36,7 @@ jobs:
       - name: Install Nativefier
         run: npm install -g nativefier
       - name: Setup Nativefier Depndencies
-        run: dpkg --add-architecture i386 && apt-get update && apt-get --yes install wine32 imagemagick
+        run: sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get --yes install wine32 imagemagick
       - name: Build
         run: |
             nativefier --version
