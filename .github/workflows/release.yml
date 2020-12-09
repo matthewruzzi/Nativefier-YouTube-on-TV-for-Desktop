@@ -30,6 +30,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - uses: actions/checkout@v2.3.4
       - uses: actions/setup-node@v1
         with:
           node-version: '12'
@@ -38,7 +39,7 @@ jobs:
       - name: Setup Nativefier Depndencies
         run: sudo apt-get update && sudo apt-get --yes install wine64 imagemagick
       - name: Test
-        run: ls
+        run: ls && pwd
       - name: Build
         run: |
             nativefier --version
