@@ -63,8 +63,43 @@ jobs:
             zip YouTubeonTV-linux-arm64.zip -r YouTubeonTV-linux-arm64 > /dev/null 2>&1
             nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a x64
             zip YouTubeonTV-linux-x64.zip -r YouTubeonTV-linux-x64 > /dev/null 2>&1
-      - name: Upload Builds
+      - name: Upload Linux arm64 Build
         uses: actions/upload-artifact@v2
         with:
            name: YouTubeonTV-linux-arm64
-           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/*.zip
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-linux-arm64.zip
+      - name: Upload Linux x64 Build
+        uses: actions/upload-artifact@v2
+        with:
+           name: YouTubeonTV-linux-x64
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-linux-x64.zip
+      - name: Upload Linux ia32 Build
+        uses: actions/upload-artifact@v2
+        with:
+           name: YouTubeonTV-linux-ia32
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-linux-ia32.zip
+      - name: Upload Mac Build
+        uses: actions/upload-artifact@v2
+        with:
+           name: YouTubeonTV-darwin-x64.zip
+           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-darwin-x64.zip
+      - name: Upload Mac arm64 Build
+        uses: actions/upload-artifact@v2
+        with:
+           name: YouTubeonTV-darwin-arm64.zip
+           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-darwin-arm64.zip
+      - name: Upload Windows x64 Build
+        uses: actions/upload-artifact@v2
+        with:
+           name: YouTubeonTV-win32-x64.zip
+           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-x64.zip
+      - name: Upload Windows ia32 Build
+        uses: actions/upload-artifact@v2
+        with:
+           name: YouTubeonTV-win32-ia32.zip
+           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-ia32.zip
+      - name: Upload Windows arm64 Build
+        uses: actions/upload-artifact@v2
+        with:
+           name: YouTubeonTV-win32-arm64.zip
+           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-arm64.zip
