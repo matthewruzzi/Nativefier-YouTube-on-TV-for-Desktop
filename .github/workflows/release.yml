@@ -1,0 +1,58 @@
+# This is a basic workflow that is manually triggered
+
+name: Release
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Person to greet'
+        # Default value if no value is explicitly provided
+        default: 'World'
+        # Input has to be provided for the workflow to run
+        required: true
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "greet"
+  greet:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Install Nativefier
+        run: npm install -g nativefier
+      - name: Build
+        run: |
+            nativefier --version
+            NATIVEFIERELECTRONVERSION=$(npm show electron version)
+            echo $NATIVEFIERELECTRONVERSION
+            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p osx
+            mv YouTube\ on\ TV-darwin-x64 YouTubeonTV-darwin-x64
+            zip YouTubeonTV-darwin-x64.zip -r YouTubeonTV-darwin-x64
+            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p osx -a arm64
+            mv YouTube\ on\ TV-darwin-arm64 YouTubeonTV-darwin-arm64
+            zip YouTubeonTV-darwin-arm64.zip -r YouTubeonTV-darwin-arm64
+            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows
+            mv YouTube\ on\ TV-win32-x64 YouTubeonTV-win32-x64
+            zip YouTubeonTV-win32-x64.zip -r YouTubeonTV-win32-x64
+            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows -a ia32
+            mv YouTube\ on\ TV-win32-ia32 YouTubeonTV-win32-ia32
+            zip YouTubeonTV-win32-ia32.zip -r YouTubeonTV-win32-ia32
+            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows -a arm64
+            mv YouTube\ on\ TV-win32-arm64 YouTubeonTV-win32-arm64
+            zip YouTubeonTV-win32-arm64.zip -r YouTubeonTV-win32-arm64
+            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a ia32
+            zip YouTubeonTV-linux-ia32.zip -r YouTubeonTV-linux-ia32
+            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a arm64
+            zip YouTubeonTV-linux-arm64.zip -r YouTubeonTV-linux-arm64
+            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a x64
+            zip YouTubeonTV-linux-x64.zip -r YouTubeonTV-linux-x64
