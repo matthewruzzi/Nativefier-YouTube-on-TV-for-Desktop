@@ -82,24 +82,24 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
            name: YouTubeonTV-darwin-x64.zip
-           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-darwin-x64.zip
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-darwin-x64.zip
       - name: Upload Mac arm64 Build
         uses: actions/upload-artifact@v2
         with:
            name: YouTubeonTV-darwin-arm64.zip
-           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-darwin-arm64.zip
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-darwin-arm64.zip
       - name: Upload Windows x64 Build
         uses: actions/upload-artifact@v2
         with:
            name: YouTubeonTV-win32-x64.zip
-           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-x64.zip
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-x64.zip
       - name: Upload Windows ia32 Build
         uses: actions/upload-artifact@v2
         with:
            name: YouTubeonTV-win32-ia32.zip
-           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-ia32.zip
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-ia32.zip
       - name: Upload Windows arm64 Build
         uses: actions/upload-artifact@v2
         with:
            name: YouTubeonTV-win32-arm64.zip
-           path: /Users/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-arm64.zip
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-arm64.zip
