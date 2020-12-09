@@ -30,6 +30,8 @@ jobs:
           node-version: '12'
       - name: Install Nativefier
         run: npm install -g nativefier
+      - name: Setup Nativefier Depndencies
+        run: dpkg --add-architecture i386 && apt-get update && apt-get --yes install wine32 imagemagick
       - name: Build
         run: |
             nativefier --version
