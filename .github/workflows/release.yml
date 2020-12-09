@@ -36,7 +36,7 @@ jobs:
       - name: Install Nativefier
         run: npm install -g nativefier
       - name: Setup Nativefier Depndencies
-        run: sudo dpkg --add-architecture i386 && sudo apt-get update && sudo apt-get --yes install wine32 imagemagick
+        run: sudo apt-get update && sudo apt-get --yes install wine64 imagemagick
       - name: Build
         run: |
             nativefier --version
