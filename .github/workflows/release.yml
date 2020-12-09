@@ -55,4 +55,9 @@ jobs:
             nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a arm64
             zip YouTubeonTV-linux-arm64.zip -r YouTubeonTV-linux-arm64
             nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a x64
-            zip YouTubeonTV-linux-x64.zip -r YouTubeonTV-linux-x64
+            zip YouTubeonTV-linux-x64.zip -r YouTubeonTV-linux-x64     
+      - name: Upload Builds
+        uses: actions/upload-artifact@v2
+        with:
+           name: YouTubeonTV-linux-arm64
+           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/*.zip
