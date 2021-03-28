@@ -1,4 +1,5 @@
 # Nativefier YouTube on TV for Desktop
+![Maintenance](https://img.shields.io/maintenance/yes/2021)
 
 This app allows you to use YouTube.com/tv (the YouTube interface for smart tvs and digital video players like Roku) on a desktop computer. It sets the user agent to Roku to prevent YouTube from redirecting to the standard desktop website like it would in a normal browser. It can be navigated with the arrow, enter, and escape keys.
 
