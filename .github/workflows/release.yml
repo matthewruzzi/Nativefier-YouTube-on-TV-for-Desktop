@@ -10,16 +10,16 @@ on:
     inputs:
       name:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
+        description: "Person to greet"
         # Default value if no value is explicitly provided
-        default: 'World'
+        default: "World"
         # Input has to be provided for the workflow to run
         required: true
   push:
     branches:
-    - master
+      - master
     paths:
-    - '.github/workflows/release.yml'
+      - ".github/workflows/release.yml"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -33,76 +33,39 @@ jobs:
       - uses: actions/checkout@v2.3.4
       - uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: "12"
+      - name: Test if should run
+      - id: shouldrun
+        run: "if [[ $(cat version) == $(npm show nativefier version),$(npm show electron version) ]]; then echo ::set-output name=shouldrun::true"
       - name: Install Nativefier
         run: npm install -g nativefier
-      - name: Setup Nativefier Depndencies
+      - name: Setup Nativefier Dependencies
         run: sudo apt-get update && sudo apt-get --yes install wine64 imagemagick
       - name: Test
         run: ls && pwd
       - name: Build
         run: |
-            nativefier --version
-            NATIVEFIERELECTRONVERSION=$(npm show electron version)
-            echo $NATIVEFIERELECTRONVERSION
-            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p osx
-            mv YouTube\ on\ TV-darwin-x64 YouTubeonTV-darwin-x64
-            zip YouTubeonTV-darwin-x64.zip -r YouTubeonTV-darwin-x64 > /dev/null 2>&1
-            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p osx -a arm64
-            mv YouTube\ on\ TV-darwin-arm64 YouTubeonTV-darwin-arm64
-            zip YouTubeonTV-darwin-arm64.zip -r YouTubeonTV-darwin-arm64 > /dev/null 2>&1
-            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows
-            mv YouTube\ on\ TV-win32-x64 YouTubeonTV-win32-x64
-            zip YouTubeonTV-win32-x64.zip -r YouTubeonTV-win32-x64 > /dev/null 2>&1
-            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows -a ia32
-            mv YouTube\ on\ TV-win32-ia32 YouTubeonTV-win32-ia32
-            zip YouTubeonTV-win32-ia32.zip -r YouTubeonTV-win32-ia32 > /dev/null 2>&1
-            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows -a arm64
-            mv YouTube\ on\ TV-win32-arm64 YouTubeonTV-win32-arm64
-            zip YouTubeonTV-win32-arm64.zip -r YouTubeonTV-win32-arm64 > /dev/null 2>&1
-            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a ia32
-            zip YouTubeonTV-linux-ia32.zip -r YouTubeonTV-linux-ia32 > /dev/null 2>&1
-            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a arm64
-            zip YouTubeonTV-linux-arm64.zip -r YouTubeonTV-linux-arm64 > /dev/null 2>&1
-            nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a x64
-            zip YouTubeonTV-linux-x64.zip -r YouTubeonTV-linux-x64 > /dev/null 2>&1
-      - name: Upload Linux arm64 Build
-        uses: actions/upload-artifact@v2
-        with:
-           name: YouTubeonTV-linux-arm64
-           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-linux-arm64.zip
-      - name: Upload Linux x64 Build
-        uses: actions/upload-artifact@v2
-        with:
-           name: YouTubeonTV-linux-x64
-           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-linux-x64.zip
-      - name: Upload Linux ia32 Build
-        uses: actions/upload-artifact@v2
-        with:
-           name: YouTubeonTV-linux-ia32
-           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-linux-ia32.zip
-      - name: Upload Mac Build
-        uses: actions/upload-artifact@v2
-        with:
-           name: YouTubeonTV-darwin-x64.zip
-           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-darwin-x64.zip
-      - name: Upload Mac arm64 Build
-        uses: actions/upload-artifact@v2
-        with:
-           name: YouTubeonTV-darwin-arm64.zip
-           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-darwin-arm64.zip
-      - name: Upload Windows x64 Build
-        uses: actions/upload-artifact@v2
-        with:
-           name: YouTubeonTV-win32-x64.zip
-           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-x64.zip
-      - name: Upload Windows ia32 Build
-        uses: actions/upload-artifact@v2
-        with:
-           name: YouTubeonTV-win32-ia32.zip
-           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-ia32.zip
-      - name: Upload Windows arm64 Build
-        uses: actions/upload-artifact@v2
-        with:
-           name: YouTubeonTV-win32-arm64.zip
-           path: /home/runner/work/Nativefier-YouTube-on-TV-for-Desktop/Nativefier-YouTube-on-TV-for-Desktop/YouTubeonTV-win32-arm64.zip
+          nativefier --version
+          NATIVEFIERELECTRONVERSION=$(npm show electron version)
+          echo $NATIVEFIERELECTRONVERSION
+          nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p osx
+          mv YouTube\ on\ TV-darwin-x64 YouTubeonTV-darwin-x64
+          zip YouTubeonTV-darwin-x64.zip -r YouTubeonTV-darwin-x64 > /dev/null 2>&1
+          nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p osx -a arm64
+          mv YouTube\ on\ TV-darwin-arm64 YouTubeonTV-darwin-arm64
+          zip YouTubeonTV-darwin-arm64.zip -r YouTubeonTV-darwin-arm64 > /dev/null 2>&1
+          nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows
+          mv YouTube\ on\ TV-win32-x64 YouTubeonTV-win32-x64
+          zip YouTubeonTV-win32-x64.zip -r YouTubeonTV-win32-x64 > /dev/null 2>&1
+          nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows -a ia32
+          mv YouTube\ on\ TV-win32-ia32 YouTubeonTV-win32-ia32
+          zip YouTubeonTV-win32-ia32.zip -r YouTubeonTV-win32-ia32 > /dev/null 2>&1
+          nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows -a arm64
+          mv YouTube\ on\ TV-win32-arm64 YouTubeonTV-win32-arm64
+          zip YouTubeonTV-win32-arm64.zip -r YouTubeonTV-win32-arm64 > /dev/null 2>&1
+          nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a ia32
+          zip YouTubeonTV-linux-ia32.zip -r YouTubeonTV-linux-ia32 > /dev/null 2>&1
+          nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a arm64
+          zip YouTubeonTV-linux-arm64.zip -r YouTubeonTV-linux-arm64 > /dev/null 2>&1
+          nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a x64
+          zip YouTubeonTV-linux-x64.zip -r YouTubeonTV-linux-x64 > /dev/null 2>&1
