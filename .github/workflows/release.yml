@@ -35,7 +35,7 @@ jobs:
         with:
           node-version: "12"
       - name: Test if should run
-      - id: shouldrun
+        id: shouldrun
         run: "if [[ $(cat version) == $(npm show nativefier version),$(npm show electron version) ]]; then echo ::set-output name=shouldrun::true"
       - name: Install Nativefier
         run: npm install -g nativefier
