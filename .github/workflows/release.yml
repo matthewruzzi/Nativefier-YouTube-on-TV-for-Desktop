@@ -39,7 +39,7 @@ jobs:
         run: "if [[ $(cat version) != $(npm show nativefier version),$(npm show electron version) ]]; then echo '::set-output name=shouldrun::true'; fi"
       - name: Install Nativefier
         run: npm install -g nativefier
-        if: steps.shouldrun.outputs.shouldrun == true
+        if: steps.shouldrun.outputs.shouldrun == "true"
       - name: Setup Nativefier Dependencies
         run: sudo apt-get update && sudo apt-get --yes install wine64 imagemagick
         if: steps.shouldrun.outputs.shouldrun == true
