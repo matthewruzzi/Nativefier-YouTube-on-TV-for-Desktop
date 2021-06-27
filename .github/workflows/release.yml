@@ -41,7 +41,7 @@ jobs:
         run: npm install -g nativefier
         #if: steps.shouldrun.outputs.shouldrun == 1
       - name: Get nativefier version
-        run: echo "::set-output name=shouldrun::$(nativefier -v)"
+        run: echo "::set-output name=shouldrun::$(nativefier --version)"
         id: nativefier-version
       - name: Setup Nativefier Dependencies
         run: sudo apt-get update && sudo apt-get --yes install wine64 imagemagick
