@@ -75,6 +75,8 @@ jobs:
       - name: Update version file
         run: echo "$(npm show nativefier version),${{ github.event.inputs.electron-version }}" > version
         if: steps.shouldrun.outputs.shouldrun == 1
+      - name: Setup Git User
+        run: git config user.name github-actions && git config user.email github-actions@github.com
       - name: Commit, tag, and push
         if: steps.shouldrun.outputs.shouldrun == 1
         run: git add version && git commit -m "v$(npm show nativefier version),${{ github.event.inputs.electron-version }} Nativefier $(npm show nativefier version) Electron ${{ github.event.inputs.electron-version }}" && git tag $(npm show nativefier version),${{ github.event.inputs.electron-version }} && git push
