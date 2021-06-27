@@ -89,4 +89,4 @@ jobs:
           artifacts: "*.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
           draft: true
-          tag: ${{ steps.nativefier-version.outputs.shouldrun }},${{ github.event.inputs.electron-version }}
+          tag: ${{ steps.nativefier-version.outputs.nativefier-version }},${{ github.event.inputs.electron-version }}
