@@ -8,11 +8,11 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
+      electron-version:
         # Friendly description to be shown in the UI instead of 'name'
-        description: "Person to greet"
+        description: "Electron version"
         # Default value if no value is explicitly provided
-        default: "World"
+        default: ""
         # Input has to be provided for the workflow to run
         required: true
   push:
@@ -36,7 +36,7 @@ jobs:
           node-version: "12"
       - name: Test if should run
         id: shouldrun
-        run: "if [[ $(cat version) != $(npm show nativefier version),$(npm show electron version) ]]; then echo '::set-output name=shouldrun::1'; fi"
+        run: "if [[ $(cat version) != $(npm show nativefier version),${{ github.event.inputs.electron-version }} ]]; then echo '::set-output name=shouldrun::1'; fi"
       - name: Install Nativefier
         run: npm install -g nativefier
         if: steps.shouldrun.outputs.shouldrun == 1
@@ -49,7 +49,7 @@ jobs:
         if: steps.shouldrun.outputs.shouldrun == 1
         run: |
           nativefier --version
-          NATIVEFIERELECTRONVERSION=$(npm show electron version)
+          NATIVEFIERELECTRONVERSION=${{ github.event.inputs.electron-version }} #$(npm show electron version)
           echo $NATIVEFIERELECTRONVERSION
           nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p osx
           mv YouTube\ on\ TV-darwin-x64 YouTubeonTV-darwin-x64
@@ -72,3 +72,15 @@ jobs:
           zip YouTubeonTV-linux-arm64.zip -r YouTubeonTV-linux-arm64 > /dev/null 2>&1
           nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a x64
           zip YouTubeonTV-linux-x64.zip -r YouTubeonTV-linux-x64 > /dev/null 2>&1
+      - name: Update version file
+        run: echo "$(npm show nativefier version),${{ github.event.inputs.electron-version }}" > version
+        if: steps.shouldrun.outputs.shouldrun == 1
+      - name: Commit, tag, and push
+        if: steps.shouldrun.outputs.shouldrun == 1
+        run: git add version && git commit -m "v$(npm show nativefier version),${{ github.event.inputs.electron-version }} Nativefier $(npm show nativefier version) Electron ${{ github.event.inputs.electron-version }}" && git tag $(npm show nativefier version),${{ github.event.inputs.electron-version }} && git push
+      - uses: ncipollo/release-action@v1
+        if: steps.shouldrun.outputs.shouldrun == 1
+        with:
+          artifact: "*.zip"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          draft: true
