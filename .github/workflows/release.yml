@@ -45,11 +45,11 @@ jobs:
         id: nativefier-version
       - name: Setup Nativefier Dependencies
         run: sudo apt-get update && sudo apt-get --yes install wine64 imagemagick
-        #if: steps.shouldrun.outputs.shouldrun == 1
+        if: steps.shouldrun.outputs.shouldrun == 1
       - name: Test
         run: ls && pwd && echo ${{ steps.shouldrun.outputs.shouldrun }}
       - name: Build
-        #if: steps.shouldrun.outputs.shouldrun == 1
+        if: steps.shouldrun.outputs.shouldrun == 1
         run: |
           nativefier --version
           NATIVEFIERELECTRONVERSION=${{ github.event.inputs.electron-version }} #$(npm show electron version)
@@ -80,11 +80,12 @@ jobs:
         if: steps.shouldrun.outputs.shouldrun == 1
       - name: Setup Git User
         run: git config user.name github-actions && git config user.email github-actions@github.com
+        if: steps.shouldrun.outputs.shouldrun == 1
       - name: Commit, tag, and push
         if: steps.shouldrun.outputs.shouldrun == 1
         run: git add version && git commit -m "v$(npm show nativefier version),${{ github.event.inputs.electron-version }} Nativefier $(npm show nativefier version) Electron ${{ github.event.inputs.electron-version }}" && git tag $(npm show nativefier version),${{ github.event.inputs.electron-version }} && git push
       - uses: ncipollo/release-action@v1
-        #if: steps.shouldrun.outputs.shouldrun == 1
+        if: steps.shouldrun.outputs.shouldrun == 1
         with:
           artifacts: "*.zip"
           token: ${{ secrets.GITHUB_TOKEN }}
