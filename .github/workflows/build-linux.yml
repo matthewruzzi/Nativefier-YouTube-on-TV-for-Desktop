@@ -25,7 +25,7 @@ jobs:
       - name: Make Builds folder
         run: mkdir builds && cd builds && pwd
       - name: Build for arm
-        run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" -p linux -a arm builds
+        run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" -p linux -a armv7l builds
       - name: Build for arm64
         run: nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" -p linux -a arm64 builds
       - name: Build for x64
