@@ -75,7 +75,7 @@ jobs:
           zip YouTubeonTV-linux-arm64.zip -r YouTubeonTV-linux-arm64 > /dev/null 2>&1
           nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p linux -a x64
           zip YouTubeonTV-linux-x64.zip -r YouTubeonTV-linux-x64 > /dev/null 2>&1
-      - name: Hash YouTubeonTV-darwin-arm64.zip
+      - name: Hash YouTubeonTV-darwin-x64.zip
         run: shasum -a 256 YouTubeonTV-darwin-x64.zip
       - name: Hash YouTubeonTV-darwin-arm64.zip
         run: shasum -a 256 YouTubeonTV-darwin-arm64.zip
