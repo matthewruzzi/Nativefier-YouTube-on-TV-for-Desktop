@@ -20,13 +20,17 @@ This app allows you to use YouTube.com/tv (the YouTube interface for smart tvs a
 
 <details>
 <summary>Gatekeeper bypass instructions</summary>
- 
- 1. Right click the app and select open. 
- ![](https://user-images.githubusercontent.com/68619790/159778409-e9b6bbd2-5fd4-49ee-9b30-da837fba66fc.png)
- 
- 2. Click open. 
- 
- ![](https://user-images.githubusercontent.com/68619790/159778653-afc3d609-e650-4ed1-8963-23262819acf8.png)
+<ol>
+    <li>
+        Right click the app and select open.
+        <img src="https://user-images.githubusercontent.com/68619790/159778409-e9b6bbd2-5fd4-49ee-9b30-da837fba66fc.png">
+
+    </li>
+    <li>
+        Click open. 
+        <img src="https://user-images.githubusercontent.com/68619790/159778653-afc3d609-e650-4ed1-8963-23262819acf8.png">
+    </li>
+</ol> 
 
 </details>
 
