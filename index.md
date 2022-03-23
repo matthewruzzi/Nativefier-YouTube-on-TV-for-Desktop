@@ -14,6 +14,24 @@ This app allows you to use YouTube.com/tv (the YouTube interface for smart tvs a
 
 [View all Releases](https://github.com/mattruzzi/Nativefier-YouTube-Roku-App-for-Desktop/releases)
 
+---
+
+**Note:** nativefier-gui is not codesigned. Mac users will have to bypass gatekeeper to use it. 
+
+<details>
+<summary>Gatekeeper bypass instructions</summary>
+ 
+ 1. Right click the app and select open. 
+ ![](https://user-images.githubusercontent.com/68619790/159778409-e9b6bbd2-5fd4-49ee-9b30-da837fba66fc.png)
+ 
+ 2. Click open. 
+ 
+ ![](https://user-images.githubusercontent.com/68619790/159778653-afc3d609-e650-4ed1-8963-23262819acf8.png)
+
+</details>
+
+---
+
 ## How to build
 
 Install [Nativefier](https://github.com/jiahaog/nativefier#installation) and run `nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $(npm show electron version)`.
