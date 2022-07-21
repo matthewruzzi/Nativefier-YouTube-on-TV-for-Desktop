@@ -19,7 +19,7 @@ jobs:
     # Runs a single command using the runners shell
       - uses: actions/setup-node@v1
         with:
-          node-version: '12'
+          node-version: '16'
       - name: Install Nativefier
         run: npm install -g nativefier
       - name: Make Builds folder

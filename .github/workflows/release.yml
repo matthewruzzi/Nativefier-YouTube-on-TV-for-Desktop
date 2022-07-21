@@ -30,10 +30,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2.3.4
+      - uses: actions/checkout@v3.0.2
       - uses: actions/setup-node@v1
         with:
-          node-version: "12"
+          node-version: "16"
       - name: Test if should run
         id: shouldrun
         run: "if [[ $(cat version) != $(npm show nativefier version),${{ github.event.inputs.electron-version }} ]]; then echo '::set-output name=shouldrun::1'; fi"
