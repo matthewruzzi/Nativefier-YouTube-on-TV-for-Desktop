@@ -63,9 +63,6 @@ jobs:
           nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows
           mv YouTube\ on\ TV-win32-x64 YouTubeonTV-win32-x64
           zip YouTubeonTV-win32-x64.zip -r YouTubeonTV-win32-x64 > /dev/null 2>&1
-          nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows -a ia32
-          mv YouTube\ on\ TV-win32-ia32 YouTubeonTV-win32-ia32
-          zip YouTubeonTV-win32-ia32.zip -r YouTubeonTV-win32-ia32 > /dev/null 2>&1
           nativefier "https://youtube.com/tv" -u "Roku/DVP-9.10 (519.10E04111A)" -n "YouTube on TV" --electron-version $NATIVEFIERELECTRONVERSION -p windows -a arm64
           mv YouTube\ on\ TV-win32-arm64 YouTubeonTV-win32-arm64
           zip YouTubeonTV-win32-arm64.zip -r YouTubeonTV-win32-arm64 > /dev/null 2>&1
