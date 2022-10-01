@@ -90,3 +90,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           draft: true
           tag: ${{ steps.nativefier-version.outputs.nativefier-version }},${{ github.event.inputs.electron-version }}
+          name: v${{ steps.nativefier-version.outputs.nativefier-version }},${{ github.event.inputs.electron-version }} Nativefier ${{ steps.nativefier-version.outputs.nativefier-version }} Electron ${{ github.event.inputs.electron-version }}
