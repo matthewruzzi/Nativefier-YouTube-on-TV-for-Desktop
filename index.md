@@ -1,4 +1,3 @@
-> [!WARNING]
 > Nativefier YouTube on TV for Desktop is an app generated with Nativefier. Nativefier is [no longer maintained](https://github.com/nativefier/nativefier/issues/1577), so updating Nativefier YouTube on TV for Desktop is no longer possible. Nativefier YouTube on TV for Desktop is therefore unmaintained and will not receive any updates. 
 
 <img src="screenshot.png" alt="Screenshot" height="400" align="center">
